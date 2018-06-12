@@ -16,10 +16,8 @@ public class BeforeSaveValidator implements Validator {
 	public void validate(Object obj, Errors error) {
 		
 		System.out.println("siamo nel validator "+obj);
-
-		Person person=new Person();
-		person=(Person) obj;
-        
+        Person person= (Person) obj;
+	
 		if(person.getFirstName().contentEquals("ciccio")) {
 			System.out.println("la person è "+person);
 			person.setLastName("bello");
@@ -28,11 +26,8 @@ public class BeforeSaveValidator implements Validator {
 		
 		 if(person.getFirstName().isEmpty()) {
 			 error.rejectValue("firstName", "firstName.empty");
-		 }
-		 if(error!=null) {
-			 System.out.println("errore "+error);
-		 }
-			
+		 }		
 	}
+	
 
 }
