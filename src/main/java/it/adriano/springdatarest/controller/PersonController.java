@@ -8,6 +8,7 @@ import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import it.adriano.springdatarest.model.Person;
 import it.adriano.springdatarest.repository.PersonRepository;
 
 
@@ -21,10 +22,17 @@ public class PersonController {
         repository = repo;
     }
 	
-	 @GetMapping("/people/prova")
-	 public @ResponseBody String getProva() {
-		return "Stai nel controller custom";
+	 @GetMapping("/people/getModel")
+	 public @ResponseBody Person getModel() {
+		 Person person=new Person();
+		 return person;
 	 
+	 }
+	 
+	 @GetMapping("/people/hello")
+	 public @ResponseBody String hello() {
+		return "Ciaooooo";
+		 
 	 }
 	 	  
 }

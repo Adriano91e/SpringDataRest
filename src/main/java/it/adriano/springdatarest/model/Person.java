@@ -1,11 +1,12 @@
 package it.adriano.springdatarest.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Person {
@@ -15,9 +16,8 @@ public class Person {
 	private int id;
 
 	private String firstName;
-	
+
 	private String lastName;
-	
 
 	public Person() {
 	}
@@ -37,4 +37,12 @@ public class Person {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+	
+
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+	}
+
 }
