@@ -23,18 +23,18 @@ public class BeforeSaveValidator implements Validator {
         Person person= (Person) obj;
 	    
        
-		if(person.getFirstName().contentEquals("ciccio")) {
+		if(person.getFirstName()!=null && person.getFirstName().contentEquals("ciccio")) {
 			System.out.println("la person è "+person);
 			person.setLastName("bello");
 			obj=person;
 		}
 		
-        if(person.getFirstName().isEmpty()) {			
+        if(person.getFirstName()==null || person.getFirstName().isEmpty()) {			
 			error.rejectValue("firstName","firstName.empty");
 			 System.out.println("errore "+error);
 		 }	
 		
-		 if(person.getLastName().isEmpty()) {			
+		 if(person.getLastName()==null || person.getLastName().isEmpty()) {			
 			error.rejectValue("lastName","lastName.empty");
 			 System.out.println("errore "+error);
 		 }		
