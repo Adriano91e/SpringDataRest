@@ -11,7 +11,7 @@ import it.adriano.springdatarest.validator.BeforeSaveValidator;
 
 
 @SpringBootApplication
-public class SpringDataRestApplication { //extends RepositoryRestConfigurerAdapter per la configurazione manuale del Validation
+public class SpringDataRestApplication extends RepositoryRestConfigurerAdapter { //extends RepositoryRestConfigurerAdapter per la configurazione manuale del Validation
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringDataRestApplication.class, args);
@@ -19,16 +19,17 @@ public class SpringDataRestApplication { //extends RepositoryRestConfigurerAdapt
 
 	
     // Configurazione Validation manuale	
-//	@Override 
-//	 public void configureValidatingRepositoryEventListener (
-//	      ValidatingRepositoryEventListener v) {
-//	        v.addValidator("beforeCreate", new BeforeSaveValidator());
-//	    }
+	@Override 
+	 public void configureValidatingRepositoryEventListener (
+	      ValidatingRepositoryEventListener v) {
+	        v.addValidator("beforeCreate", new BeforeSaveValidator());
+	    }
 
 	//Configurazione Validation tramite been
-	@Bean
-	public BeforeSaveValidator beforeCreateWebsiteUserValidator() {
-	    return new BeforeSaveValidator();
-	}
+//	@Bean
+//	public BeforeSaveValidator beforeCreateWebsiteUserValidator() {
+//	    return new BeforeSaveValidator();
+//	}
 	
+
 }
